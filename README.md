@@ -15,112 +15,93 @@
 
 gdsfactory: An open source platform for end to-end chip design and validation.
 
-Highlights:
 
-- More than 1M downloads
-- More than 50 Contributors
-- More than 10 PDKs available
-
-Gdsfactory is a Python library for designing chips (Photonics, Analog, Quantum, MEMs, and more), 3D printed objects, and PCBs.
-Here, you can code your hardware design in Python or YAML, perform verification (DRC, simulation, and extraction), and enable automated testing in the lab to ensure your fabricated chip meets your specifications.
-
-![workflow](https://i.imgur.com/abvxJJw.png)
-
-
-We facilitate an end-to-end design flow for you to:
-
-- **Design (Layout, Simulation, Optimization)**: Utilize parametric cell functions in Python or YAML to define components. Test component settings, ports, and geometry to avoid unwanted regressions, and capture design intent in a schematic.
-- **Verify (DRC, DFM, LVS)**: Run simulations directly from the layout using our simulation interfaces, removing the need to duplicate geometry drawings. Conduct component and circuit simulations, study design for manufacturing, and ensure complex layouts match their design intent through Layout Versus Schematic verification.
-- **Validate**: Define layout and test protocols simultaneously for automated chip analysis post-fabrication. This allows you to extract essential component parameters, and build data pipelines from raw data to structured data to monitor chip performance.
-
-Your input: Python or YAML text.
-Your output: A GDSII or OASIS file for fabrication, alongside component settings (for measurement and data analysis) and netlists (for circuit simulations) in YAML.
-
-![layout_to_components](https://i.imgur.com/S96RSil.png)
-
-![flow](https://i.imgur.com/XbhWJDz.png)
-
-We provide a common syntax for design (KLayout, gdstk, Ansys Lumerical, tidy3d, MEEP, MPB, DEVSIM, SAX, MEOW ...), verification, and validation.
-
-![tool interfaces](https://i.imgur.com/oHKZ7hW.png)
-
-Numerous foundries have gdsfactory PDKs available. You may need to contact your foundry to access their gdsfactory PDK, as some are provided under NDA only.
-
-Available PDKs under NDA:
-
-- AIM photonics PDK
-- AMF photonics PDK
-- TowerSemi PH18 photonics PDK
-- GlobalFoundries 45SPCLO Photonics PDK
-- IMEC photonics PDK
-- HHI Photonics PDK
-- Compoundtek photonics PDK
-
-Available open source PDKs (no NDA required):
-
-- [GlobalFoundries 180nm MCU CMOS PDK](https://gdsfactory.github.io/gf180/) (open source)
-- [SiEPIC Ebeam UBC PDK](https://gdsfactory.github.io/ubc) (open source)
-- [Skywater130 CMOS PDK](https://gdsfactory.github.io/skywater130) (open source)
-- [VTT](https://github.com/gdsfactory/vtt) (open source)
-
-You can also access:
-
-- instructions on [how to build your own PDK](https://gdsfactory.github.io/gdsfactory/notebooks/08_pdk.html)
-- instructions on [how to import a PDK from a library of fixed GDS cells](https://gdsfactory.github.io/gdsfactory/notebooks/09_pdk_import.html)
-
-![pdks](https://i.imgur.com/BMhx9Jo.png)
-
-
-## Getting started
-
-- [See slides](https://docs.google.com/presentation/d/1_ZmUxbaHWo_lQP17dlT1FWX-XD8D9w7-FcuEih48d_0/edit#slide=id.g11711f50935_0_5)
-- [Read docs](https://gdsfactory.github.io/gdsfactory/)
-- [![Video Tutorials](https://img.shields.io/badge/youtube-Video_Tutorials-red.svg?logo=youtube)](https://www.youtube.com/@gdsfactory625/playlists)
-- [![Join the chat at https://gitter.im/gdsfactory-dev/community](https://badges.gitter.im/gdsfactory-dev/community.svg)](https://gitter.im/gdsfactory-dev/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-- See announcements on [GitHub](https://github.com/gdsfactory/gdsfactory/discussions/547), [google-groups](https://groups.google.com/g/gdsfactory) or [LinkedIn](https://www.linkedin.com/company/gdsfactory)
-- [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gdsfactory/gdsfactory-photonics-training)
-- [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=250169028)
-- [PIC training](https://gdsfactory.github.io/gdsfactory-photonics-training/)
-- Online course [UBCx: Silicon Photonics Design, Fabrication and Data Analysis](https://www.edx.org/learn/engineering/university-of-british-columbia-silicon-photonics-design-fabrication-and-data-ana), where students can use gdsfactory to create a design, have it fabricated, and tested.
-
-
-## Who is using gdsfactory?
-
-Hundreds of organisations are using gdsfactory. Some companies and organizations around the world using gdsfactory include:
-
-![logos](https://i.imgur.com/IqTUq9S.png)
-
-
-"I've used **gdsfactory** since 2017 for all my chip tapeouts. I love that it is fast, easy to use, and easy to extend. It's the only tool that allows us to have an end-to-end chip design flow (design, verification and validation)."
-
-<div style="text-align: right; margin-right: 10%;">Joaquin Matres - <strong>Google</strong></div>
-
----
-
-"I've relied on **gdsfactory** for several tapeouts over the years. It's the only tool I've found that gives me the flexibility and scalability I need for a variety of projects."
-
-<div style="text-align: right; margin-right: 10%;">Alec Hammond - <strong>Meta Reality Labs Research</strong></div>
-
----
-
-"The best photonics layout tool I've used so far and it is leaps and bounds ahead of any commercial alternatives out there. Feels like gdsfactory is freeing photonics."
-
-<div style="text-align: right; margin-right: 10%;">Hasitha Jayatilleka - <strong>LightIC Technologies</strong></div>
-
----
-
-"As an academic working on large scale silicon photonics at CMOS foundries I've used gdsfactory to go from nothing to full-reticle layouts rapidly (in a few days). I particularly appreciate the full-system approach to photonics, with my layout being connected to circuit simulators which are then connected to device simulators. Moving from legacy tools such as gdspy and phidl to gdsfactory has sped up my workflow at least an order of magnitude."
-
-<div style="text-align: right; margin-right: 10%;">Alex Sludds - <strong>MIT</strong></div>
-
----
-
-"I use gdsfactory for all of my photonic tape-outs. The Python interface makes it easy to version control individual photonic components as well as entire layouts, while integrating seamlessly with KLayout and most standard photonic simulation tools, both open-source and commercial.
-
-<div style="text-align: right; margin-right: 10%;">Thomas Dorch - <strong>Freedom Photonics</strong></div>
-
-## Contributors
-
-Thanks to all the contributors that make this awesome project possible!
-
-[![Meet our contributors!](https://contrib.rocks/image?repo=gdsfactory/gdsfactory)](https://github.com/gdsfactory/gdsfactory/graphs/contributors)
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><h1 tabindex="-1" dir="auto"><a id="user-content-gdsfactory-7105" class="anchor" aria-hidden="true" tabindex="-1" href="#gdsfactory-7105"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">gdsfactory 7.10.5</font></font></h1>
+<p dir="auto"><a href="https://gdsfactory.github.io/gdsfactory/" rel="nofollow"><img src="https://github.com/gdsfactory/gdsfactory/actions/workflows/pages.yml/badge.svg" alt="文档" style="max-width: 100%;"></a>
+<a href="https://pypi.org/project/gdsfactory/" rel="nofollow"><img src="https://camo.githubusercontent.com/5c0974d55a6429c4c55730841e44089d594cb51d99c828f550633b574170505a/68747470733a2f2f696d672e736869656c64732e696f2f707970692f762f676473666163746f7279" alt="皮伊" data-canonical-src="https://img.shields.io/pypi/v/gdsfactory" style="max-width: 100%;"></a>
+<a href="https://anaconda.org/conda-forge/gdsfactory" rel="nofollow"><img src="https://camo.githubusercontent.com/78a57b8d9385597768882f278d8007627e67dd5d79aeb3640126f7adb14fb079/68747470733a2f2f696d672e736869656c64732e696f2f636f6e64612f766e2f636f6e64612d666f7267652f676473666163746f72792e737667" alt="康达版本" data-canonical-src="https://img.shields.io/conda/vn/conda-forge/gdsfactory.svg" style="max-width: 100%;"></a>
+<a href="https://hub.docker.com/r/joamatab/gdsfactory" rel="nofollow"><img src="https://camo.githubusercontent.com/91268eada96d6d3b4e257ad2630d49363080ae8a2cb5d081f889fa96a8d0b6bb/68747470733a2f2f696d672e736869656c64732e696f2f646f636b65722f70756c6c732f6a6f616d617461622f676473666163746f7279" alt="Dockerhub" data-canonical-src="https://img.shields.io/docker/pulls/joamatab/gdsfactory" style="max-width: 100%;"></a>
+<a href="https://pypi.python.org/pypi/gdsfactory" rel="nofollow"><img src="https://camo.githubusercontent.com/169a3187aefff3924c4f550bbd8e8278bc11ea657a220a78a9f94a955a8efe73/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f676473666163746f72792e737667" alt="PyPI Python" data-canonical-src="https://img.shields.io/pypi/pyversions/gdsfactory.svg" style="max-width: 100%;"></a>
+<a href="https://pepy.tech/project/gdsfactory" rel="nofollow"><img src="https://camo.githubusercontent.com/9fe10bbc9782f5ee61206a01cd515f3afe8d12cd295e5a6c6342a9d747bc406f/68747470733a2f2f7374617469632e706570792e746563682f62616467652f676473666163746f7279" alt="下载" data-canonical-src="https://static.pepy.tech/badge/gdsfactory" style="max-width: 100%;"></a>
+<a href="https://choosealicense.com/licenses/mit/" rel="nofollow"><img src="https://camo.githubusercontent.com/862b808c7a3149986a02a5a13951c30129506f7451d442379572ebb7411195c0/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f676473666163746f72792f676473666163746f7279" alt="麻省理工学院" data-canonical-src="https://img.shields.io/github/license/gdsfactory/gdsfactory" style="max-width: 100%;"></a>
+<a href="https://codecov.io/gh/gdsfactory/gdsfactory/tree/main/gdsfactory" rel="nofollow"><img src="https://camo.githubusercontent.com/26904eba0ffe96c72fdb79e26a02dc48572b97fef0dd8a2ce803cb7f47649ded/68747470733a2f2f696d672e736869656c64732e696f2f636f6465636f762f632f6769746875622f676473666163746f72792f676473666163746f7279" alt="代码科夫" data-canonical-src="https://img.shields.io/codecov/c/github/gdsfactory/gdsfactory" style="max-width: 100%;"></a>
+<a href="https://mybinder.org/v2/gh/gdsfactory/binder-sandbox/HEAD" rel="nofollow"><img src="https://camo.githubusercontent.com/e91e1d353a8b6acf0b42547ac3901f2c30138a3abaaa3d3c242da30b5b4f8426/68747470733a2f2f6d7962696e6465722e6f72672f62616467655f6c6f676f2e737667" alt="活页夹" data-canonical-src="https://mybinder.org/badge_logo.svg" style="max-width: 100%;"></a>
+<a href="https://colab.research.google.com/github/gdsfactory/gdsfactory-photonics-training" rel="nofollow"><img src="https://camo.githubusercontent.com/f5e0d0538a9c2972b5d413e0ace04cecd8efd828d133133933dfffec282a4e1b/68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6173736574732f636f6c61622d62616467652e737667" alt="科拉布" data-canonical-src="https://colab.research.google.com/assets/colab-badge.svg" style="max-width: 100%;"></a></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/dddee5f0f67b2afdbc313919db5c9bfb008e4148b0eddc2a5ddf9c6724955946/68747470733a2f2f692e696d6775722e636f6d2f634e315a5771382e706e67"><img src="https://camo.githubusercontent.com/dddee5f0f67b2afdbc313919db5c9bfb008e4148b0eddc2a5ddf9c6724955946/68747470733a2f2f692e696d6775722e636f6d2f634e315a5771382e706e67" alt="标识" data-canonical-src="https://i.imgur.com/cN1ZWq8.png" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">gdsfactory：用于端到端芯片设计和验证的开源平台。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">强调：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下载量超过 100 万次</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">超过 50 名贡献者</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">超过 10 个可用的 PDK</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gdsfactory 是一个用于设计芯片（光子、模拟、量子、MEM 等）、3D 打印物体和 PCB 的 Python 库。</font><font style="vertical-align: inherit;">在这里，您可以使用 Python 或 YAML 对硬件设计进行编码，执行验证（DRC、模拟和提取），并在实验室中启用自动化测试，以确保您制造的芯片符合您的规格。</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ab680fa1b913ddd827d8ca606b2f11fa39217272cc8f803d05925dd8fc30ae24/68747470733a2f2f692e696d6775722e636f6d2f616276784a4a772e706e67"><img src="https://camo.githubusercontent.com/ab680fa1b913ddd827d8ca606b2f11fa39217272cc8f803d05925dd8fc30ae24/68747470733a2f2f692e696d6775722e636f6d2f616276784a4a772e706e67" alt="工作流程" data-canonical-src="https://i.imgur.com/abvxJJw.png" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们为您提供端到端的设计流程：</font></font></p>
+<ul dir="auto">
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设计（布局、模拟、优化）</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：利用 Python 或 YAML 中的参数化单元函数来定义组件。</font><font style="vertical-align: inherit;">测试组件设置、端口和几何形状以避免不必要的回归，并在原理图中捕获设计意图。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">验证（DRC、DFM、LVS）</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：使用我们的模拟接口直接从布局运行模拟，无需复制几何图形。</font><font style="vertical-align: inherit;">进行元件和电路仿真，研究制造设计，并通过布局与原理图验证确保复杂的布局符合其设计意图。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">验证</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：同时定义布局和测试协议，以进行制造后的自动化芯片分析。</font><font style="vertical-align: inherit;">这使您可以提取重要的组件参数，并构建从原始数据到结构化数据的数据管道以监控芯片性能。</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您的输入：Python 或 YAML 文本。</font><font style="vertical-align: inherit;">您的输出：用于制造的 GDSII 或 OASIS 文件，以及 YAML 中的组件设置（用于测量和数据分析）和网表（用于电路仿真）。</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/dc94db82339bb862a2e08b87ea0fa3951aa80a8e01ed1b431c0664639b2dda23/68747470733a2f2f692e696d6775722e636f6d2f5339365253696c2e706e67"><img src="https://camo.githubusercontent.com/dc94db82339bb862a2e08b87ea0fa3951aa80a8e01ed1b431c0664639b2dda23/68747470733a2f2f692e696d6775722e636f6d2f5339365253696c2e706e67" alt="布局到组件" data-canonical-src="https://i.imgur.com/S96RSil.png" style="max-width: 100%;"></a></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/5a243dc32d2fbeca5f119dc00b7ced51d9448dbabcb5c613137295a2d6b5f779/68747470733a2f2f692e696d6775722e636f6d2f586268574a447a2e706e67"><img src="https://camo.githubusercontent.com/5a243dc32d2fbeca5f119dc00b7ced51d9448dbabcb5c613137295a2d6b5f779/68747470733a2f2f692e696d6775722e636f6d2f586268574a447a2e706e67" alt="流动" data-canonical-src="https://i.imgur.com/XbhWJDz.png" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们为设计（KLayout、gdstk、Ansys Lumerical、tidy3d、MEEP、MPB、DEVSIM、SAX、MEOW ...）、验证和确认提供通用语法。</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b9fa61e2bd1ec0e36d4ff0c16759d4997180a97e587bfec1b9af4f8e45823fc0/68747470733a2f2f692e696d6775722e636f6d2f6f484b5a3768572e706e67"><img src="https://camo.githubusercontent.com/b9fa61e2bd1ec0e36d4ff0c16759d4997180a97e587bfec1b9af4f8e45823fc0/68747470733a2f2f692e696d6775722e636f6d2f6f484b5a3768572e706e67" alt="工具接口" data-canonical-src="https://i.imgur.com/oHKZ7hW.png" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">许多代工厂都有可用的 gdsfactory PDK。</font><font style="vertical-align: inherit;">您可能需要联系您的代工厂以访问他们的 gdsfactory PDK，因为某些 PDK 仅在 NDA 下提供。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">NDA 下可用的 PDK：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">AIM 光子学 PDK</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">AMF 光子学 PDK</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TowerSemi PH18 光子 PDK</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GlobalFoundries 45SPCLO 光子 PDK</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">IMEC 光子学 PDK</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现代重工光电 PDK</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">复合泰克光子学 PDK</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可用的开源 PDK（无需 NDA）：</font></font></p>
+<ul dir="auto">
+<li><a href="https://gdsfactory.github.io/gf180/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GlobalFoundries 180nm MCU CMOS PDK</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（开源）</font></font></li>
+<li><a href="https://gdsfactory.github.io/ubc" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SiEPIC Ebeam UBC PDK</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（开源）</font></font></li>
+<li><a href="https://gdsfactory.github.io/skywater130" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Skywater130 CMOS PDK</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（开源）</font></font></li>
+<li><a href="https://github.com/gdsfactory/vtt"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">VTT</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（开源）</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您还可以访问：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><a href="https://gdsfactory.github.io/gdsfactory/notebooks/08_pdk.html" rel="nofollow"><font style="vertical-align: inherit;">有关如何构建您自己的 PDK 的</font></a><font style="vertical-align: inherit;">说明</font></font><a href="https://gdsfactory.github.io/gdsfactory/notebooks/08_pdk.html" rel="nofollow"><font style="vertical-align: inherit;"></font></a></li>
+<li><font style="vertical-align: inherit;"><a href="https://gdsfactory.github.io/gdsfactory/notebooks/09_pdk_import.html" rel="nofollow"><font style="vertical-align: inherit;">有关如何从固定 GDS 单元库导入 PDK 的</font></a><font style="vertical-align: inherit;">说明</font></font><a href="https://gdsfactory.github.io/gdsfactory/notebooks/09_pdk_import.html" rel="nofollow"><font style="vertical-align: inherit;"></font></a></li>
+</ul>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9f65511c26cd0f973e3c921a7f53194d81c5212550ffa184911de1b290842280/68747470733a2f2f692e696d6775722e636f6d2f424d6878394a6f2e706e67"><img src="https://camo.githubusercontent.com/9f65511c26cd0f973e3c921a7f53194d81c5212550ffa184911de1b290842280/68747470733a2f2f692e696d6775722e636f6d2f424d6878394a6f2e706e67" alt="PDKS" data-canonical-src="https://i.imgur.com/BMhx9Jo.png" style="max-width: 100%;"></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-getting-started" class="anchor" aria-hidden="true" tabindex="-1" href="#getting-started"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">入门</font></font></h2>
+<ul dir="auto">
+<li><a href="https://docs.google.com/presentation/d/1_ZmUxbaHWo_lQP17dlT1FWX-XD8D9w7-FcuEih48d_0/edit#slide=id.g11711f50935_0_5" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">查看幻灯片</font></font></a></li>
+<li><a href="https://gdsfactory.github.io/gdsfactory/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">阅读文档</font></font></a></li>
+<li><a href="https://www.youtube.com/@gdsfactory625/playlists" rel="nofollow"><img src="https://camo.githubusercontent.com/2796c1dd10e659bc04e6473dd0e0d81cbb274bd5ce5f4bf37dfa9f33c5e0794e/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f796f75747562652d566964656f5f5475746f7269616c732d7265642e7376673f6c6f676f3d796f7574756265" alt="视频教程" data-canonical-src="https://img.shields.io/badge/youtube-Video_Tutorials-red.svg?logo=youtube" style="max-width: 100%;"></a></li>
+<li><a href="https://gitter.im/gdsfactory-dev/community?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge" rel="nofollow"><img src="https://camo.githubusercontent.com/c81232602518f3d99b706203118de6a38cb926f436b75ad31aeefcecb064b9cc/68747470733a2f2f6261646765732e6769747465722e696d2f676473666163746f72792d6465762f636f6d6d756e6974792e737667" alt="加入聊天：https://gitter.im/gdsfactory-dev/community" data-canonical-src="https://badges.gitter.im/gdsfactory-dev/community.svg" style="max-width: 100%;"></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">查看</font></font><a href="https://github.com/gdsfactory/gdsfactory/discussions/547" data-hovercard-type="discussion" data-hovercard-url="/gdsfactory/gdsfactory/discussions/547/hovercard"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GitHub</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://groups.google.com/g/gdsfactory" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">google-groups</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><a href="https://www.linkedin.com/company/gdsfactory" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">LinkedIn上的公告</font></font></a></li>
+<li><a href="https://colab.research.google.com/github/gdsfactory/gdsfactory-photonics-training" rel="nofollow"><img src="https://camo.githubusercontent.com/f5e0d0538a9c2972b5d413e0ace04cecd8efd828d133133933dfffec282a4e1b/68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6173736574732f636f6c61622d62616467652e737667" alt="科拉布" data-canonical-src="https://colab.research.google.com/assets/colab-badge.svg" style="max-width: 100%;"></a></li>
+<li><a href="https://github.com/codespaces/new?hide_repo_select=true&amp;ref=main&amp;repo=250169028"><img src="https://github.com/codespaces/badge.svg" alt="在 GitHub Codespaces 中打开" style="max-width: 100%;"></a></li>
+<li><a href="https://gdsfactory.github.io/gdsfactory-photonics-training/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PIC培训</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在线课程</font></font><a href="https://www.edx.org/learn/engineering/university-of-british-columbia-silicon-photonics-design-fabrication-and-data-ana" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">UBCx：硅光子设计、制造和数据分析</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，学生可以使用 gdsfactory 创建设计、制造和测试。</font></font></li>
+</ul>
+<h2 tabindex="-1" dir="auto"><a id="user-content-who-is-using-gdsfactory" class="anchor" aria-hidden="true" tabindex="-1" href="#who-is-using-gdsfactory"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">谁在使用 gdsfactory？</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数百个组织正在使用 gdsfactory。</font><font style="vertical-align: inherit;">世界各地使用 gdsfactory 的一些公司和组织包括：</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/58aff7bcb046e239c72de92e9632797df4004d6cf30f09617d80312218a42e18/68747470733a2f2f692e696d6775722e636f6d2f497154557139532e706e67"><img src="https://camo.githubusercontent.com/58aff7bcb046e239c72de92e9632797df4004d6cf30f09617d80312218a42e18/68747470733a2f2f692e696d6775722e636f6d2f497154557139532e706e67" alt="标志" data-canonical-src="https://i.imgur.com/IqTUq9S.png" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">“自 2017 年以来，我一直使用</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">gdsfactory</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">进行所有芯片流片。我喜欢它快速、易于使用且易于扩展。它是唯一允许我们拥有端到端芯片设计流程（设计、验证和确认）。”</font></font></p>
+<div dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">华金·马特雷斯 - </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Google</font></font></strong></div>
+<hr>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">“多年来，</font><font style="vertical-align: inherit;">我一直依靠</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">gdsfactory进行多次流片。这是我发现的唯一能够为我提供各种项目所需的灵活性和可扩展性的工具。”</font></font></strong><font style="vertical-align: inherit;"></font></p>
+<div dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">亚历克·哈蒙德 -</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元现实实验室研究</font></font></strong></div>
+<hr>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">“迄今为止我用过的最好的光子学布局工具，它远远领先于任何商业替代品。感觉 gdsfactory 正在解放光子学。”</font></font></p>
+<div dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hasitha Jayatilleka - </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">LightIC 技术</font></font></strong></div>
+<hr>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">“作为一名在 CMOS 代工厂从事大规模硅光子学工作的学者，我使用 gdsfactory 快速从无到全掩模版布局（几天之内）。我特别欣赏光子学的全系统方法，我的布局是连接到电路模拟器，然后再连接到设备模拟器。从 gdspy 和 phidl 等传统工具转移到 gdsfactory 使我的工作流程至少加快了一个数量级。”</font></font></p>
+<div dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">亚历克斯·斯拉兹 -</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">麻省理工学院</font></font></strong></div>
+<hr>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">“我使用 gdsfactory 进行所有光子流片。Python 界面可以轻松地对各个光子组件以及整个布局进行版本控制，同时与 KLayout 和大多数标准光子模拟工具（开源和商业）无缝集成。</font></font></p>
+<div dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thomas Dorch -</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自由光子学</font></font></strong></div>
+<h2 tabindex="-1" dir="auto"><a id="user-content-contributors" class="anchor" aria-hidden="true" tabindex="-1" href="#contributors"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献者</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">感谢所有使这个出色的项目成为可能的贡献者！</font></font></p>
+<p dir="auto"><a href="https://github.com/gdsfactory/gdsfactory/graphs/contributors"><img src="https://camo.githubusercontent.com/8fc27d8c5ddbc5d09eeca87e0c41a4cc1c3822969cf0dc5d2ac23c25d906f8f7/68747470733a2f2f636f6e747269622e726f636b732f696d6167653f7265706f3d676473666163746f72792f676473666163746f7279" alt="认识我们的贡献者！" data-canonical-src="https://contrib.rocks/image?repo=gdsfactory/gdsfactory" style="max-width: 100%;"></a></p>
+</article></div>
